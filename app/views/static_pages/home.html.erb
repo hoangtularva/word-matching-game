@@ -1,0 +1,17 @@
+<% @room_user_words.each.with_index(1) do |room_user_word, index| %>
+  <%= "Tu vua nhap ne: " if index == @room_user_words.length - 1  and room_user_word.human?  %>
+  <%= room_user_word.type_author %>
+  <%= room_user_word.text %>||  <%= room_user_word.status %> 
+  <br>
+
+<% end %>
+
+<%= form_with(url: start_game_static_pages_path) do |form| %>
+  <%= form.text_field :text %>
+
+  <br>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to "choi lai", reset_game_static_pages_path, data: { "turbo-method": :delete } %>

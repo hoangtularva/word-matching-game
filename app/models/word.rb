@@ -3,4 +3,7 @@ class Word < ApplicationRecord
   has_many :room_user_words
 
   validates :text, uniqueness: true
+
+  enum status: {unconfirm: 0, confirmed: 1}
+ 
 end

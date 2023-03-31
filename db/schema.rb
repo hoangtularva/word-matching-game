@@ -28,9 +28,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_041914) do
   end
 
   create_table "room_user_words", force: :cascade do |t|
-    t.integer "word_id", null: false
+    t.integer "word_id"
     t.integer "room_user_id", null: false
-    t.integer "score"
+    t.text "text"
+    t.float "score"
+    t.integer "status"
+    t.integer "type_author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_user_id"], name: "index_room_user_words_on_room_user_id"
@@ -49,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_041914) do
   create_table "rooms", force: :cascade do |t|
     t.integer "author_id", null: false
     t.string "name"
-    t.integer "type_room"
+    t.integer "type_room", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_rooms_on_author_id"
@@ -66,8 +69,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_041914) do
   create_table "words", force: :cascade do |t|
     t.integer "author_id", null: false
     t.text "text"
-    t.integer "type_word"
-    t.integer "status"
+    t.integer "type_word", default: 0
+    t.integer "status", default: 0
     t.text "source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

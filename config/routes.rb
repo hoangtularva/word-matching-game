@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   resources :words
   resources :rooms
   resources :users
+  resources :static_pages, only: [] do 
+    collection do 
+      post :start_game
+      delete :reset_game
+    end
+  end
 end
