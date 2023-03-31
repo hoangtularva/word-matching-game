@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Room settings</h1>
+
+<div id="room_settings">
+  <% @room_settings.each do |room_setting| %>
+    <%= render room_setting %>
+    <p>
+      <%= link_to "Show this room setting", room_setting %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New room setting", new_room_setting_path %>

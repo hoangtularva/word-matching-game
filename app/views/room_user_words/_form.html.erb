@@ -1,0 +1,17 @@
+<%= form_with(model: room_user_word) do |form| %>
+  <% if room_user_word.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(room_user_word.errors.count, "error") %> prohibited this room_user_word from being saved:</h2>
+
+      <ul>
+        <% room_user_word.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
