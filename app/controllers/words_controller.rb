@@ -22,6 +22,8 @@ class WordsController < ApplicationController
   # POST /words or /words.json
   def create
     @word = Word.new(word_params)
+    @word.author_id = User.last.id
+
 
     respond_to do |format|
       if @word.save
@@ -65,6 +67,6 @@ class WordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def word_params
-      params.fetch(:word, {})
+      params.require(:word).permit(:text, :author_id)
     end
 end
