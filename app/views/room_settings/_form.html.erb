@@ -1,0 +1,17 @@
+<%= form_with(model: room_setting) do |form| %>
+  <% if room_setting.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(room_setting.errors.count, "error") %> prohibited this room_setting from being saved:</h2>
+
+      <ul>
+        <% room_setting.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

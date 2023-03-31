@@ -1,0 +1,2 @@
+class RoomSetting < ApplicationRecord
+end
